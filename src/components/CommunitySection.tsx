@@ -48,8 +48,14 @@ const CommunitySection = () => {
           </div>
         </div>
 
-        <Button variant="outline" size="lg">
-          Learn About Membership
+        <Button variant="outline" size="lg" asChild>
+          <a 
+            href="https://discord.com/channels/1442556988163751970/1442559941918326939" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Join the Community
+          </a>
         </Button>
       </div>
     </section>
