@@ -15,6 +15,18 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { label: "Experience", href: "#experience" },
     { label: "How It Works", href: "#how-it-works" },
@@ -33,7 +45,11 @@ const Navbar = () => {
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="font-display text-2xl text-foreground hover:text-secondary transition-colors">
+        <a 
+          href="/" 
+          className="font-display text-2xl text-foreground hover:text-secondary transition-colors"
+          aria-label="Inkblot Home"
+        >
           Inkblot
         </a>
 
@@ -57,6 +73,8 @@ const Navbar = () => {
         <button
           className="md:hidden w-10 h-10 flex items-center justify-center text-foreground"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -65,24 +83,26 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-secondary/10 transition-all duration-300",
+          "md:hidden fixed top-16 left-0 right-0 bottom-0 bg-background/95 backdrop-blur-md border-t border-secondary/10 transition-all duration-300 z-40 overflow-y-auto",
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
-        <div className="px-6 py-6 space-y-4">
+        <div className="px-6 py-6 space-y-4 flex flex-col min-h-full">
           {navLinks.map(link => (
             <a
               key={link.label}
               href={link.href}
-              className="block text-foreground hover:text-secondary transition-colors py-2"
+              className="block text-xl font-medium text-foreground hover:text-secondary transition-colors py-4 border-b border-white/5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
             </a>
           ))}
-          <Button variant="velvet" className="w-full mt-4">
-            Join Waitlist
-          </Button>
+          <div className="pt-6 mt-auto pb-8">
+            <Button variant="velvet" className="w-full h-12 text-lg">
+              Join Waitlist
+            </Button>
+          </div>
         </div>
       </div>
     </header>
