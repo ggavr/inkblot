@@ -69,24 +69,23 @@ const ExperienceSection = () => {
 
               {/* Content Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="font-display text-2xl text-foreground mb-2">
+                  {element.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                  {element.description}
+                </p>
                 {/* Tags */}
-                <div className="flex gap-2 mb-3">
+                <div className="flex flex-wrap gap-2">
                   {element.tags.map(tag => (
                     <span 
                       key={tag}
-                      className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary border border-primary/30"
+                      className="text-xs px-2 py-1 rounded-full bg-primary/30 text-primary-foreground border border-primary/40"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-
-                <h3 className="font-display text-2xl text-foreground mb-2">
-                  {element.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {element.description}
-                </p>
               </div>
             </div>
           ))}

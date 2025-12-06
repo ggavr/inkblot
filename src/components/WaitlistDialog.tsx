@@ -18,6 +18,7 @@ interface WaitlistDialogProps {
 const WaitlistDialog = ({ children }: WaitlistDialogProps) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [city, setCity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [open, setOpen] = useState(false);
@@ -39,6 +40,7 @@ const WaitlistDialog = ({ children }: WaitlistDialogProps) => {
         setIsSuccess(false);
         setEmail("");
         setName("");
+        setCity("");
       }, 300);
     }, 2000);
   };
@@ -98,6 +100,21 @@ const WaitlistDialog = ({ children }: WaitlistDialogProps) => {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="bg-muted/50 border-secondary/20 focus:border-secondary/40"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="city" className="text-sm font-medium text-foreground">
+                  City (UK)
+                </label>
+                <Input
+                  id="city"
+                  type="text"
+                  placeholder="London, Manchester, etc."
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                   required
                   className="bg-muted/50 border-secondary/20 focus:border-secondary/40"
                 />

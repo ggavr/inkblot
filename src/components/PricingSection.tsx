@@ -38,11 +38,11 @@ const PricingSection = () => {
             {/* Price */}
             <div className="mb-6">
               <div className="flex items-baseline gap-2">
-                <span className="font-display text-5xl text-foreground">$49</span>
-                <span className="text-muted-foreground">/month</span>
+                <span className="font-display text-5xl text-foreground">£29</span>
+                <span className="text-muted-foreground">/3 months</span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Billed monthly
+                Billed quarterly
               </p>
             </div>
 
