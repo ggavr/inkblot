@@ -60,15 +60,10 @@ const HowItWorksSection = () => {
               )}
 
               <div className="text-center">
-                {/* Step Number */}
+                {/* Step Icon (Numbers removed) */}
                 <div className="relative inline-block mb-6">
-                  <span className="font-display text-6xl text-secondary/20 group-hover:text-secondary/30 transition-colors duration-500">
-                    {step.number}
-                  </span>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-background-alt border border-secondary/30 flex items-center justify-center group-hover:border-secondary/50 transition-colors duration-500">
-                      <step.icon className="w-5 h-5 text-secondary" />
-                    </div>
+                  <div className="w-16 h-16 mx-auto rounded-full bg-background-alt border border-secondary/30 flex items-center justify-center group-hover:border-secondary/50 group-hover:shadow-glow-gold transition-all duration-500">
+                    <step.icon className="w-8 h-8 text-secondary" />
                   </div>
                 </div>
 
