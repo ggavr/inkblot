@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import WaitlistDialog from "./WaitlistDialog";
 
 const FooterCTA = () => {
   return (
@@ -23,11 +24,13 @@ const FooterCTA = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="hero" size="xl" className="group">
-            Join the Waitlist
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-          <Button variant="outline" size="xl">
+          <WaitlistDialog>
+            <Button variant="hero" size="xl" className="group w-full sm:w-auto min-w-[220px]">
+              Join the Waitlist
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </WaitlistDialog>
+          <Button variant="outline" size="xl" className="w-full sm:w-auto min-w-[220px]">
             Gift a Subscription
           </Button>
         </div>

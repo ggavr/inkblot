@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import WaitlistDialog from "./WaitlistDialog";
 
 const PricingSection = () => {
   const features = [
@@ -58,9 +59,11 @@ const PricingSection = () => {
             </ul>
 
             {/* CTA */}
-            <Button variant="velvet" size="xl" className="w-full">
-              Start Your Journey
-            </Button>
+            <WaitlistDialog>
+              <Button variant="velvet" size="xl" className="w-full">
+                Start Your Journey
+              </Button>
+            </WaitlistDialog>
 
             <p className="text-center text-sm text-muted-foreground mt-4">
               Cancel anytime • Pause whenever you need

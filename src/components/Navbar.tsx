@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import WaitlistDialog from "./WaitlistDialog";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +39,7 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled || isMobileMenuOpen
+        isScrolled 
           ? "bg-background/90 backdrop-blur-md border-b border-secondary/10" 
           : "bg-transparent"
       )}
@@ -64,9 +65,11 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button variant="velvet" size="sm">
-            Join Waitlist
-          </Button>
+          <WaitlistDialog>
+            <Button variant="velvet" size="sm">
+              Join Waitlist
+            </Button>
+          </WaitlistDialog>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,11 +86,14 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden fixed top-16 left-0 right-0 bottom-0 bg-background/95 backdrop-blur-md border-t border-secondary/10 transition-all duration-300 z-40 overflow-y-auto",
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          "md:hidden fixed inset-x-0 bottom-0 bg-background/95 backdrop-blur-md border-t border-secondary/10 transition-all duration-300 overflow-y-auto",
+          isMobileMenuOpen 
+            ? "opacity-100 visible translate-y-0" 
+            : "opacity-0 invisible translate-y-4"
         )}
+        style={{ top: '4rem' }} /* Match h-16 navbar height */
       >
-        <div className="px-6 py-6 space-y-4 flex flex-col min-h-full">
+        <div className="px-6 py-6 space-y-2 flex flex-col h-full">
           {navLinks.map(link => (
             <a
               key={link.label}
@@ -98,10 +104,14 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <div className="pt-6 mt-auto pb-8">
-            <Button variant="velvet" className="w-full h-12 text-lg">
-              Join Waitlist
-            </Button>
+          <div className="pt-6 mt-auto pb-safe">
+            <WaitlistDialog>
+              <Button variant="velvet" className="w-full h-12 text-lg">
+                Join Waitlist
+              </Button>
+            </WaitlistDialog>
+            {/* Extra padding for devices with home indicator */}
+            <div className="h-6" />
           </div>
         </div>
       </div>

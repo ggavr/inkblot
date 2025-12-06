@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import WaitlistDialog from "./WaitlistDialog";
 
 const HeroSection = () => {
   return (
@@ -54,11 +55,20 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.8s" }}
           >
-            <Button variant="hero" size="xl" className="group">
-              Join the Waitlist
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline" size="xl">
+            <WaitlistDialog>
+              <Button variant="hero" size="xl" className="group w-full sm:w-auto min-w-[220px]">
+                Join the Waitlist
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </WaitlistDialog>
+            <Button 
+              variant="outline" 
+              size="xl" 
+              className="w-full sm:w-auto min-w-[220px]"
+              onClick={() => {
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Explore the Experience
             </Button>
           </div>
@@ -70,16 +80,6 @@ const HeroSection = () => {
           >
             Discreet packaging · Cancel anytime
           </p>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in"
-        style={{ animationDelay: "1.2s" }}
-      >
-        <div className="w-6 h-10 border-2 border-secondary/30 rounded-full flex justify-center">
-          <div className="w-1.5 h-3 bg-secondary/50 rounded-full mt-2 animate-float" />
         </div>
       </div>
     </section>
