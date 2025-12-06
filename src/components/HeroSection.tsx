@@ -68,7 +68,7 @@ const HeroSection = () => {
             className="text-sm text-secondary/60 pt-6 opacity-0 animate-fade-in"
             style={{ animationDelay: "1s" }}
           >
-            6 books for the price of 1 · Discreet packaging · Cancel anytime
+            Discreet packaging · Cancel anytime
           </p>
         </div>
       </div>

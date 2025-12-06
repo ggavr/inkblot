@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const PricingSection = () => {
   const features = [
-    "6 curated indie romance books",
+    "Curated indie romance books",
     "Signature scents & objects",
     "Curated playlists for each book",
     "Exclusive author content",
@@ -41,7 +41,7 @@ const PricingSection = () => {
                 <span className="text-muted-foreground">/month</span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                6 books for the price of 1 • Billed monthly
+                Billed monthly
               </p>
             </div>
 
